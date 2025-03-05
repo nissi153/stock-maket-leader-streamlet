@@ -269,7 +269,7 @@ def show_market_analysis():
             df['거래대금'] = df['거래대금'].str.replace(',', '').str.replace('억', '').astype(float).round(0).astype(int).astype(
                 str) + '억'
             df['종목명'] = df['종목명'].apply(truncate_string)
-            styled_df = df.style.applymap(highlight_positive, subset=['등락율'])
+            styled_df = df.style.map(highlight_positive, subset=['등락율'])
             st.dataframe(styled_df, hide_index=True, width=400)
 
     # 거래대금 상위 종목 차트
