@@ -150,17 +150,19 @@ def update_data():
 
 def highlight_positive(val):
     """양수/음수 값을 하이라이트하는 함수"""
-    if isinstance(val, str):
-        try:
-            # 문자열에서 +/- 기호 제거하고 숫자로 변환해보기
-            num_val = float(val.replace('+', '').replace('%', ''))
-            if num_val > 0:
-                return 'background-color: #e5ffe5; color: #ff0000'  # 초록색 (양수)
-            elif num_val < 0:
-                return 'background-color: #ffe5e5; color: #28a745'  # 빨간색 (음수)
-        except ValueError:
-            pass
+    try:
+        # 값이 문자열이면 변환
+        if isinstance(val, str):
+            val = float(val.replace('+', '').replace('%', ''))
+
+        if val > 0:
+            return 'background-color: #e5ffe5; color: #ff0000'  # 양수 (초록 배경, 빨강 글씨)
+        elif val < 0:
+            return 'background-color: #ffe5e5; color: #28a745'  # 음수 (빨강 배경, 초록 글씨)
+    except (ValueError, TypeError):
+        return ''
     return ''
+
 
 
 def truncate_string(text, max_length=8):
