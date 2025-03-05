@@ -177,7 +177,7 @@ def show_market_analysis():
     st.title(f"📊실시간 주도주 탐색기({current_time})")
 
     # 컨트롤 요소들을 한 줄에 배치하고 세로 중앙 정렬
-    col1, col2, col3, col4 = st.columns([1, 1, 1, 1])
+    col1, col2, col3 = st.columns([1, 1, 1])
 
     with col1:
         if st.button('🔄새로고침', use_container_width=True):
