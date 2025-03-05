@@ -4,7 +4,7 @@ import plotly.express as px
 import time
 import json
 from datetime import datetime, timedelta
-from screenshot import capture_and_send_screenshot
+# from screenshot import capture_and_send_screenshot
 from AirtableAPI import AirtableAPI
 
 
