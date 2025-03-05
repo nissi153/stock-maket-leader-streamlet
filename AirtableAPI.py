@@ -2,14 +2,16 @@ import os
 from datetime import datetime
 import pandas as pd
 from pyairtable import Api
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from typing import Optional
 
 class AirtableAPI:
     def __init__(self):
-        load_dotenv()
-        self.api_key = os.getenv('AIRTABLE_API_KEY')
-        self.base_id = os.getenv('AIRTABLE_BASE_ID')
+        # load_dotenv()
+        # self.api_key = os.getenv('AIRTABLE_API_KEY')
+        # self.base_id = os.getenv('AIRTABLE_BASE_ID')
+        self.api_key = "patXjWsIGN6VU5vxf.981a8a91a4a3d2d30be5dc3b0d62d189f1e53d93e104ae5d73db99f28763d741"
+        self.base_id = "apppDcbSN4LaOXO1v"
 
         if not self.api_key or not self.base_id:
             raise ValueError("AIRTABLE_API_KEY와 AIRTABLE_BASE_ID 환경변수가 필요합니다.")
