@@ -7,6 +7,10 @@ from datetime import datetime, timedelta
 # from screenshot import capture_and_send_screenshot
 from AirtableAPI import AirtableAPI
 
+from zoneinfo import ZoneInfo
+
+# 한국 시간대 설정
+kst = ZoneInfo('Asia/Seoul')
 
 # 초기 설정을 함수로 분리
 def initialize_session_state():
@@ -175,7 +179,7 @@ def truncate_string(text, max_length=8):
 def show_market_analysis():
     """시장 분석 데이터를 표시하는 메인 함수"""
     # 현재 시간 표시
-    current_time = datetime.now().strftime("%H:%M:%S")
+    current_time = datetime.now(kst).strftime("%H:%M:%S")
     st.title(f"📊실시간 주도주 탐색기({current_time})")
 
     # 컨트롤 요소들을 한 줄에 배치하고 세로 중앙 정렬
