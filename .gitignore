@@ -1,2 +1,5 @@
 # Streamlit secrets 파일 제외
 .streamlit/secrets.toml
+
+__pycache__
+*.pyc
