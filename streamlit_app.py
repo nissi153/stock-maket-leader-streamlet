@@ -94,29 +94,6 @@ def fetch_market_data():
         return None
 
 
-def should_fetch_data():
-    """데이터를 새로 가져와야 하는지 확인하는 함수"""
-    current_time = datetime.now()
-
-    # 데이터가 없거나 마지막 fetch 시간이 없는 경우
-    if st.session_state.data is None or st.session_state.last_fetch_time is None:
-        st.session_state.next_refresh_time = current_time + timedelta(minutes=5)
-        return True
-
-    # 에러가 3번 이상 발생하면 자동 새로고침 중지
-    if st.session_state.error_count >= 3:
-        st.session_state.auto_refresh = False
-        st.error("연속된 에러로 인해 자동 새로고침이 중지되었습니다.")
-        return False
-
-    # 현재 시간이 다음 새로고침 시간을 지났는지 확인
-    if current_time >= st.session_state.next_refresh_time:
-        st.session_state.next_refresh_time = current_time + timedelta(minutes=5)
-        return True
-
-    return False
-
-
 def update_data():
     """데이터를 업데이트하는 함수"""
     with st.spinner('데이터를 가져오는 중...'):
